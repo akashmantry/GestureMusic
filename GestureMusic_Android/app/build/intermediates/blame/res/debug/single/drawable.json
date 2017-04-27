@@ -1,0 +1,202 @@
+[
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_dark.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_dialog_material_background_dark.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_pause.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_pause.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_repeat_focused.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_repeat_focused.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_shuffle_focused.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_shuffle_focused.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gradient_bg.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\gradient_bg.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_repeat.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_repeat.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_next.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_next.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_selector.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\list_selector.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_player_footer.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\bg_player_footer.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_player_header.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\bg_player_header.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_corner.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\rounded_corner.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_image.jpg",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\bg_image.jpg"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_previous.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_previous.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_shuffle.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_shuffle.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\adele.jpg",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\adele.jpg"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\seekbar_progress_bg.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\seekbar_progress_bg.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\drawable\\design_fab_background.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_forward.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_forward.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_playlist.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_playlist.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gradient_bg_hover.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\gradient_bg_hover.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_backward.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_backward.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\seekbar_progress.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\seekbar_progress.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_full_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_ratingbar_full_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_play.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\btn_play.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\bg.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\src\\main\\res\\drawable\\bg.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "E:\\Wearable&MobileSensorComputing\\MHLClient-master\\TestMusicPlayer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_textfield_search_material.xml"
+    }
+]
