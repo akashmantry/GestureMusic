@@ -70,7 +70,7 @@ public abstract class SensorService extends Service implements ConnectionStateHa
     /** indicates whether the sensor service is running or not */
     private static boolean isRunning = false;
 
-    protected final String userID = ;
+    protected final String userID = "";
     private volatile BlockingSensorReadingQueue sensorReadingQueue;
 
     protected MobileIOClient mClient;

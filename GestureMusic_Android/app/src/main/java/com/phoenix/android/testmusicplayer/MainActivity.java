@@ -2,11 +2,10 @@ package com.phoenix.android.testmusicplayer;
 
 import android.app.Activity;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import android.content.BroadcastReceiver;
@@ -16,7 +15,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.media.AudioManager;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -28,7 +29,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.devadvance.circularseekbar.CircularSeekBar;
@@ -36,13 +36,8 @@ import com.devadvance.circularseekbar.CircularSeekBar;
 import com.pheelicks.utils.TunnelPlayerWorkaround;
 import com.pheelicks.visualizer.VisualizerView;
 import com.pheelicks.visualizer.renderer.BarGraphRenderer;
-import com.pheelicks.visualizer.renderer.CircleBarRenderer;
-import com.pheelicks.visualizer.renderer.CircleRenderer;
-import com.pheelicks.visualizer.renderer.LineRenderer;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.PorterDuffXfermode;
 
 public class MainActivity extends Activity {
 
@@ -51,28 +46,30 @@ public class MainActivity extends Activity {
     private ImageButton btnBackward;
     private Button btnStart;
     private Button btnStop;
-    //private SeekBar songProgressBar;
     private CircularSeekBar songProgressBar;
     private  MediaPlayer mp;
     private Handler myHandler = new Handler();
     private double startTime = 0;
     private double finalTime = 0;
-    private int seekForwardTime = 5000; // 5000 milliseconds
-    private int seekBackwardTime = 5000; // 5000 milliseconds
+    //private int seekForwardTime = 5000; // 5000 milliseconds
+    //private int seekBackwardTime = 5000; // 5000 milliseconds
 
     private AudioManager audioManager;
     int curVolume, maxVolume, volume;
     private float previous_received_value = 0;
-    private float currentVolume = 0.5f;
-    private static final int maxVolume_volume_up = 26;
-    private static final int minVolume_volume_down = 13;
+    private int maxDistance = 2000;
+    private int minDistance = 0;
+    private static int songIndex = 0;
+    private boolean song_playing = false;
 
 
     private TextView songTitle,songCurrentDurationLabel;
+    MediaMetadataRetriever mmr = new MediaMetadataRetriever();
 
     private VisualizerView mVisualizerView;
     private MediaPlayer mSilentPlayer;  /* to avoid tunnel player issue */
 
+    private ArrayList<String> listOfFilePath = new ArrayList<String>();
 
     /** used for debugging purposes */
     private static final String TAG = MainActivity.class.getName();
@@ -109,10 +106,36 @@ public class MainActivity extends Activity {
         }
     };
 
+    // Function for volume change
+    private void changeVolume(String message, float oldValue) {
+        int minVolume = 0;
+        int maxVolume = 0;
+        int currentVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        Log.d(TAG, "Current Volume: " + currentVolume);
+        if (message.equals("volume_up")){
+            minVolume = currentVolume;
+            maxVolume = 15;
+        } else if (message.equals("volume_down")) {
+            maxVolume = currentVolume;
+            minVolume = 0;
+        }
+
+        int oldRange = (maxDistance - minDistance);
+        int newRange = (maxVolume - minVolume);
+        float newVolume = (((oldValue - minDistance) * newRange) / oldRange) + minVolume;
+
+        Log.d(TAG, "oldRange" + oldRange);
+        Log.d(TAG, "newRange" + newRange);
+        Log.d(TAG, "oldValue" + oldValue);
+        Log.d(TAG, "minVolume" + minVolume);
+        Log.d(TAG, "maxVolume" + maxVolume);
+        Log.d(TAG, "New Volume: " + (int) newVolume);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, (int) newVolume, 1);
+    }
+
 
     /**
-     * Displays the server reading to the screen
-     * TODO: have to map the value and use it to increase or decrease the volume
+     * Receive input from BandServices
      */
     private void displayAccelerometerReading(final String message, final float input){
         this.runOnUiThread(new Runnable() {
@@ -121,32 +144,13 @@ public class MainActivity extends Activity {
             public void run() {
                 if (previous_received_value != input) {
                     previous_received_value = input;
-                    Log.d(TAG, message);
-
-                    //Toast.makeText(getApplicationContext(), message + input, Toast.LENGTH_SHORT).show();
-                    if (message.equals("volume_up")) {
-                        //float log1=(float)(1 - (Math.log(maxVolume_volume_up-input)/Math.log(maxVolume_volume_up)));
-                        //float changedVolume = log1;
-                        int currentVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-                        float newVolume = currentVolume + (0.57f * input);
-                        //Log.d(TAG, "log1: " + log1);
-                        Log.d(TAG, "currentVolume: " + newVolume);
-                        //currentVolume = curVolume + changedVolume*10;
-
-                        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, (int) newVolume, 1);
-                        //Log.d(TAG, "Volume up" + (int)newVolume);
-
-                    } else if (message.equals("volume_down")) {
-                        //float log1=(float)(1 - (Math.log(minVolume_volume_down-input)/Math.log(minVolume_volume_down)));
-                        //float changedVolume = log1;
-                        int currentVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-                        float newVolume = currentVolume - (1.15f * input);
-                        //Log.d(TAG, "log1: " + log1);
-                        Log.d(TAG, "changedVolume: " + newVolume);
-                        //currentVolume = curVolume - changedVolume*10;
-
-                        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, (int)newVolume, 1);
-                        //Log.d(TAG, "Volume down" + (int)currentVolume);
+                    Log.d(TAG, "Message received: " + message);
+                    if (message.equals("volume_up") || message.equals("volume_down")) {
+                        changeVolume(message, input);
+                    } else if (message.equals("play_pause")){
+                        play_pause();
+                    } else if(message.equals("next_song") || message.equals("previous_song")){
+                        change_song(message);
                     }
                 }
             }
@@ -248,34 +252,135 @@ public class MainActivity extends Activity {
         }
     }
 
+    // Function for play/pause
+    void play_pause(){
+        if (mp.isPlaying()) {
+            mp.pause();
+            btnPlay.setImageResource(R.drawable.btn_play);
+            mVisualizerView.clearRenderers();
+            song_playing = false;
+        } else {
+            btnPlay.setImageResource(R.drawable.btn_pause);
+            mp.start();
+            song_playing = true;
+            finalTime = mp.getDuration();
+            startTime = mp.getCurrentPosition();
+
+            songProgressBar.setMax((int) finalTime);
+            songCurrentDurationLabel.setText(String.format("%d min, %d sec",
+                            TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+                            TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
+                                            startTime)))
+            );
+
+            songProgressBar.setProgress((int) startTime);
+            myHandler.postDelayed(UpdateSongTime, 100);
+
+            addBarGraphRenderers();
+        }
+    }
+
+    public void checkSongIndex(){
+        if(songIndex > listOfFilePath.size())
+            songIndex = 0;
+        else if (songIndex < 0)
+            songIndex = listOfFilePath.size() - 1;
+    }
+
+    //Function to change the song
+    public void change_song(String change){
+        try {
+            mp.reset();
+
+            if (change.equals("next_song"))
+                ++songIndex;
+            else if ((change.equals("previous_song")))
+                --songIndex;
+
+            checkSongIndex();
+            mp.setDataSource(this, Uri.parse(listOfFilePath.get(songIndex)));
+            setSongTitle(listOfFilePath.get(songIndex));
+            mp.prepare();
+            if(song_playing)
+                mp.start();
+        } catch(IOException e){
+            Log.d(TAG, "" + e);
+        }
+        startTime = 0;
+
+        songProgressBar.setProgress((int) startTime);
+        songCurrentDurationLabel.setText(String.format("%d min, %d sec",
+                        TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+                        TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+                                        toMinutes((long) startTime)))
+        );
+    }
+
+    ArrayList<String> findSongs(String rootPath) {
+        ArrayList<String> fileList = new ArrayList<>();
+        try{
+            File rootFolder = new File(rootPath);
+            File[] files = rootFolder.listFiles(); //here you will get NPE if directory doesn't contains  any file,handle it like this.
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    if (findSongs(file.getAbsolutePath()) != null) {
+                        fileList.addAll(findSongs(file.getAbsolutePath()));
+                    } else {
+                        break;
+                    }
+                } else if (file.getName().endsWith(".mp3")) {
+                    fileList.add(file.getAbsolutePath());
+                }
+            }
+            return fileList;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    // Set song title
+    public void setSongTitle(String filePath){
+        mmr.setDataSource(filePath);
+        String songName = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+        songTitle.setText(songName);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.player);
 
+        if(findSongs("/storage/sdcard1/")!=null){
+            listOfFilePath=findSongs("/storage/sdcard1/");
+            //Log.d(TAG, "SD card's first music file: " + listOfFilePath.get(0));
+        }else {
+            Toast.makeText(this, "SD Card not available!", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "sdCard not available");
+        }
+
+
         btnPlay = (ImageButton) findViewById(R.id.btnPlay);
         btnForward = (ImageButton) findViewById(R.id.btnForward);
         btnBackward = (ImageButton) findViewById(R.id.btnBackward);
         btnStart = (Button) findViewById(R.id.btnStart);
         btnStop = (Button) findViewById(R.id.btnStop);
-
         songProgressBar = (CircularSeekBar) findViewById(R.id.songProgressBar);
-        //songProgressBar = (SeekBar) findViewById(R.id.songProgressBar);
-        //songProgressBar.setClickable(false);
-
         songTitle = (TextView)findViewById(R.id.songTitle);
         songCurrentDurationLabel = (TextView)findViewById(R.id.songCurrentDurationLabel);
-        songTitle.setText("Song.mp3");
+        setSongTitle(listOfFilePath.get(songIndex));
 
         bindToServiceIfIsRunning();
 
-        // audio manager stuff
+        // Audio manager stuff
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        Log.d(TAG, "Max volume: " + maxVolume);
 
+        /**
+         * Start sending data from band
+         * */
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -289,7 +394,6 @@ public class MainActivity extends Activity {
                     filter.addAction(Constants.ACTION.BROADCAST_DATA_FROM_SERVER);
                     broadcastManager.registerReceiver(receiver, filter);
 
-
                     Intent startIntent = new Intent(MainActivity.this, BandServices.class);
                     startIntent.setAction(Constants.ACTION.START_FOREGROUND);
                     Log.d(TAG, "text: " + text);
@@ -299,6 +403,9 @@ public class MainActivity extends Activity {
             }
         });
 
+        /**
+         * Stop sending data from band
+         * */
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -313,81 +420,42 @@ public class MainActivity extends Activity {
             }
         });
 
-        mp = MediaPlayer.create(this, R.raw.song);
-        //mVisualizerView = (VisualizerView) findViewById(R.id.visualizerView);
-        //mVisualizerView.link(mp);
-        //addBarGraphRenderers();
+        // Set the first song from the list
+        mp = MediaPlayer.create(this, Uri.parse(listOfFilePath.get(songIndex)));
 
+        /**
+         * Play/pause button click event
+         * Play/pause song
+         * */
         btnPlay.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-                if (mp.isPlaying()) {
-                    mp.pause();
-                    Toast.makeText(getApplicationContext(), "Pausing sound", Toast.LENGTH_SHORT).show();
-                    btnPlay.setImageResource(R.drawable.btn_play);
-
-                    mVisualizerView.clearRenderers();
-                } else {
-                    btnPlay.setImageResource(R.drawable.btn_pause);
-                    Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
-                    mp.start();
-
-                    finalTime = mp.getDuration();
-                    startTime = mp.getCurrentPosition();
-
-                    songProgressBar.setMax((int) finalTime);
-                    songCurrentDurationLabel.setText(String.format("%d min, %d sec",
-                                    TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-                                    TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-                                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
-                                                    startTime)))
-                    );
-
-                    songProgressBar.setProgress((int) startTime);
-                    myHandler.postDelayed(UpdateSongTime, 100);
-
-                    addBarGraphRenderers();
-                }
+                play_pause();
             }
         });
 
+        /**
+         * Forward button click event
+         * Go to next song
+         * */
         btnForward.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-                // get current song position
-                int currentPosition = mp.getCurrentPosition();
-                // check if seekForward time is lesser than song duration
-                if(currentPosition + seekForwardTime <= mp.getDuration()){
-                    // forward song
-                    mp.seekTo(currentPosition + seekForwardTime);
-                    Toast.makeText(getApplicationContext(),"You have Jumped forward 5 seconds",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getApplicationContext(),"Cannot jump forward 5 seconds",Toast.LENGTH_SHORT).show();
-                }
+                change_song("next_song");
             }
         });
 
         /**
          * Backward button click event
-         * Backward song to specified seconds
+         * Got to previous song
          * */
         btnBackward.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-                // get current song position
-                int currentPosition = mp.getCurrentPosition();
-                // check if seekBackward time is greater than 0 sec
-                if(currentPosition - seekBackwardTime >= 0){
-                    // backward song
-                    mp.seekTo(currentPosition - seekBackwardTime);
-                    Toast.makeText(getApplicationContext(),"You have Jumped backward 5 seconds",Toast.LENGTH_SHORT).show();
-                }else{
-                    // backward to starting position
-                    Toast.makeText(getApplicationContext(),"Cannot jump backward 5 seconds",Toast.LENGTH_SHORT).show();
-                }
+                change_song("previous_song");
 
             }
         });
@@ -399,13 +467,14 @@ public class MainActivity extends Activity {
                 startTime = 0;
 
                 songProgressBar.setProgress((int) startTime);
-                //songVolumeBar.setProgress(50);
                 songCurrentDurationLabel.setText(String.format("%d min, %d sec",
                                 TimeUnit.MILLISECONDS.toMinutes((long) startTime),
                                 TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
                                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
                                                 toMinutes((long) startTime)))
                 );
+
+                change_song("next_song");
             }
         });
     }
@@ -457,13 +526,6 @@ public class MainActivity extends Activity {
     // Methods for adding renderers to visualizer
     private void addBarGraphRenderers()
     {
-/*        Paint paint = new Paint();
-        paint.setStrokeWidth(50f);
-        paint.setAntiAlias(true);
-        paint.setColor(Color.argb(200, 56, 138, 252));
-        BarGraphRenderer barGraphRendererBottom = new BarGraphRenderer(16, paint, false);
-        mVisualizerView.addRenderer(barGraphRendererBottom);*/
-
         Paint paint2 = new Paint();
         paint2.setStrokeWidth(30f);
         paint2.setAntiAlias(true);

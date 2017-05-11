@@ -166,29 +166,17 @@ public class BandServices extends SensorService implements BandGyroscopeEventLis
         Object[] data = new Object[]{event.getTimestamp(),
                 event.getAccelerationX(), event.getAccelerationY(), event.getAccelerationZ(),
                 event.getAngularVelocityX(), event.getAngularVelocityY(), event.getAngularVelocityZ()};
-        // TODO: Send accelerometer readings to server and UI
-        String sample = TextUtils.join(",", data);
-        //Log.d(TAG, sample);
+
         float acc_x = event.getAccelerationX();
         float acc_y = event.getAccelerationY();
         float acc_z = event.getAccelerationZ();
         float angv_x = event.getAngularVelocityX();
         float angv_y = event.getAngularVelocityY();
         float angv_z = event.getAngularVelocityZ();
-        //Calendar c = Calendar.getInstance();
-        //long milliseconds = c.get(Calendar.MILLISECOND);
         String milli = Long.toString(event.getTimestamp());
 
         mClient.sendSensorReading(new AcceGyro(userID, "MOBILE_ANDROID", event.getTimestamp(), acc_x, acc_y, acc_z, angv_x, angv_y, angv_z));
-        //Log.d(TAG, "label: "+received);
-        //if(received=="Nothing" || received == null) {
         data_list.add(new String[]{milli, String.format("%.3f", acc_x), String.format("%.3f", acc_y), String.format("%.3f", acc_z), String.format("%.3f", angv_x), String.format("%.3f", angv_y), String.format("%.3f", angv_z)});
-        //}else{
-        //    data_list.add(new String[]{milli, String.format("%.3f", acc_x), String.format("%.3f", acc_y), String.format("%.3f", acc_z), String.format("%.3f", angv_x), String.format("%.3f", angv_y), String.format("%.3f", angv_z), received});
-        //}
-        //Log.d(TAG, "TimeStamp: " + milli);
-        //adding data to the array list
-        //3.27 1.99
     }
 
     @Override
@@ -200,7 +188,6 @@ public class BandServices extends SensorService implements BandGyroscopeEventLis
                 Log.d(TAG, "Received message from server.");
                 try {
                     JSONObject data = json.getJSONObject("data");
-                    //long timestamp = data.getLong("timestamp");
                     String a = data.toString();
                     String[] separated = a.split(":");
                     String message = separated[0].substring(2, separated[0].length() - 1);
