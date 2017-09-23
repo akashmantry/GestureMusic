@@ -23,7 +23,7 @@ and gyroscope sensor data is used.
 * Distance from differnece of start and peak/valley indexes
 * In total 34 features
 4. Classification
-* Used Random Forest Classifer with Accuracy 99.6%, Precison 0.991 and Recall 0.994
+* Used Random Forest Classifer
 
 ## Gestures currently supported
 1. Volume up
